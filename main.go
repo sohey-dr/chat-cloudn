@@ -7,10 +7,11 @@ import (
     "github.com/gorilla/websocket"
 )
 
-var clients = make(map[*websocket.Conn]bool) // 接続されるクライアント
-var broadcast = make(chan Message)           // メッセージブロードキャストチャネル
+var (
+    clients = make(map[*websocket.Conn]bool)
+    broadcast = make(chan Message)
+)
 
-// アップグレーダ
 var upgrader = websocket.Upgrader{
     CheckOrigin: func(r *http.Request) bool {
         return true
