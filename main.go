@@ -18,7 +18,6 @@ var upgrader = websocket.Upgrader{
     },
 }
 
-// メッセージ用構造体
 type Message struct {
     Email    string `json:"email"`
     Username string `json:"username"`
